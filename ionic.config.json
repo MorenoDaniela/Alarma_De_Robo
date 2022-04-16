@@ -1,0 +1,7 @@
+{
+  "name": "Alamar_De_Robo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
