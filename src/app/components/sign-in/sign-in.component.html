@@ -1,0 +1,65 @@
+
+<div  style="background-color: #EC865E;">
+  <ion-card  style="background-color: #EC865E;">
+    <ion-item button (click)="Sereneis()" color="warning">
+      <ion-label>
+        Usuario 1
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="Irina()" color="danger">
+      <ion-label>
+        Usuario 2
+      </ion-label>
+    </ion-item>
+    <ion-item button (click)="Denu()" color="success">
+      <ion-label>
+        Usuario 3
+      </ion-label>
+    </ion-item>
+    <form [formGroup]="formulario" (ngSubmit)="Loguear()">
+        <ion-item color="#71c1e8">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="text" class="formControl"  formControlName="Email" required></ion-input>
+        </ion-item>
+
+        <span class="text-danger" *ngIf="formulario.get('Email')?.hasError('required') && formulario.get('Email')?.touched">El Email es requerido.</span> 
+        <span class="text-danger" *ngIf="formulario.get('Email')?.hasError('pattern') && formulario.get('Email')?.touched">El Email debe tener x.</span>
+      
+        <ion-item color="#71c1e8">
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" class="formControl" formControlName="Password" required></ion-input>
+        </ion-item>
+      
+       <span class="text-danger" *ngIf="formulario.get('Password')?.hasError('required') && formulario.get('Password')?.touched">La contraseña es requerida.</span>  
+     
+      <!-- <ion-button size="small" color="warning" type="submit" shape="round" expand="block" [disabled]="formulario.invalid">Logueate</ion-button> -->
+      <ion-button type="submit" expand="block" [disabled]="formulario.invalid" style="--background: #0f0e0e;">
+        <ion-icon name="enter-outline" size="large" ></ion-icon>
+      </ion-button>
+      
+  </form>
+  <!-- <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button (click)="Sereneis()" style="--background:#EC865E;">
+      <ion-icon name="happy-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-fab-button>
+    <ion-fab-button (click)="Irina()" style="--background:#EC865E;">
+      <ion-icon name="happy-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-fab-button>
+    <ion-fab-button (click)="Denu()" style="--background:#EC865E;">
+      <ion-icon name="happy-outline"></ion-icon>
+     
+    </ion-fab-button>
+    
+  </ion-fab> -->
+  
+  
+  <div class="text-center"> <img style="background-color: #EC865E;"src="../../../assets/icon.png" alt=""> </div>
+  <!-- <div class="text-center">
+    <img  src="../../../assets/alarmaa1.png" style="height: 50%;width: 100%;">
+  </div> -->
+  <h1>Alarma de robo</h1>
+  </ion-card>
+  
+</div>

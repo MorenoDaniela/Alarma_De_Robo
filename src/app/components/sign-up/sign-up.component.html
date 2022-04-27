@@ -1,0 +1,82 @@
+<!-- <div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Sign Up</h3>
+        <div class="formGroup">
+          <input
+            type="email"
+            class="formControl"
+            placeholder="Email Address"
+            #userEmail
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="password"
+            class="formControl"
+            placeholder="Password"
+            #userPwd
+            required
+          />
+        </div>
+        <div class="formGroup">
+          <input
+            type="button"
+            class="btn btnPrimary"
+            value="Sign Up"
+            (click)="authService.SignUp(userEmail.value, userPwd.value)"
+          />
+        </div>
+        <div class="formGroup">
+          <span class="or"><span class="orInner">Or</span></span>
+        </div>
+       
+        <div class="formGroup">
+          <button
+            type="button"
+            class="btn googleBtn"
+            (click)="authService.GoogleAuth()"
+          >
+            <i class="fab fa-google-plus-g"></i>
+            Continue with Google
+          </button>
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span
+          >Already have an account?
+          <span class="redirect" routerLink="/sign-in">Log In</span></span
+        >
+      </div>
+    </div>
+  </div> -->
+
+
+  <div class="wrapper">
+    <div class="logo"> <img src="https://www.freepnglogos.com/uploads/sparkle-png/circle-fireworks-purple-sparkle-transparent-background-0.png" alt=""> </div>
+    <div class="text-center mt-4 name"> Moreno App </div>
+    <form class="p-3 mt-3">
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span>   <input
+          type="email"
+          class="formControl"
+          placeholder="Email Address"
+          #userEmail
+          required
+        /> </div>
+        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span>  <input
+          type="password"
+          class="formControl"
+          placeholder="Password"
+          #userPwd
+          required
+        /> </div>  <input type="button" class="btn btnPrimary" value="Registrate" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+    </form>
+    <div class="text-center fs-6"  (click)="authService.GoogleAuth()">  <span class="text-warning">Log in con Google</span>  </div>
+    <div class="text-center fs-6" > 
+      <span
+      >Ya tenes una cuenta?
+      <span class="text-success" routerLink="/sign-in">Log In</span></span
+    >
+        </div>
+</div>

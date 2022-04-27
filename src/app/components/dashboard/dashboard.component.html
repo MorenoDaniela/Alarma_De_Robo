@@ -1,0 +1,94 @@
+<!-- Top navigation -->
+<!-- <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+      <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
+    </a>
+  </nav> -->
+  <!-- Sidebar navigation -->
+  <!-- <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active">
+                <i class="fas fa-user"></i>Perfil de Usuario
+              </a>
+            </li>
+         
+            <li class="nav-item">
+              <a class="nav-link" (click)="authService.SignOut()">
+                <i class="fas fa-sign-out-alt"></i>Salir
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="inner-adjust">
+          <div class="pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Usuario</h1>
+          </div>
+  
+          <div class="row" *ngIf="authService.userData as user">
+            <div class="col-md-12">
+              <div class="media">
+                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/teemo.jpg'}}"
+                  alt="{{user.displayName}}">
+                <div class="media-body">
+                  <h1>Hola: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                  <p>ID: <strong>{{user.uid}}</strong></p>
+                  <p>Email: <strong>{{user.email}}</strong></p>
+                  <p>Email verificado: <strong>{{user.emailVerified}}</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+     
+    </div>
+  </div> -->
+
+
+
+
+
+  <!-- <div class="container mt-4 mb-4 p-3 d-flex justify-content-center" *ngIf="authService.userData as user">
+    <div class="card p-4">
+        <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span class="name mt-3">{{(user.displayName) ? user.displayName : 'User'}}</span> <span class="idd">{{user.email}}</span>
+            
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number">one text <span class="follow">another</span></span> </div>
+            <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Edit Profile</button> </div>
+            <div class="text mt-3"> <span>{{user.uid}}<br><br> ID </span> </div>
+            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
+            <div class=" px-2 rounded mt-4 date" (click)="authService.SignOut()"> <span class="join">Salir</span> </div>
+        </div>
+    </div>
+</div> -->
+
+<ion-card *ngIf="authService.userData as user">
+  <ion-button color="danger" (click)="authService.SignOut()">
+   Salir
+  </ion-button>
+
+  <ion-card-header>
+    <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/teemo.jpg'}}"
+    alt="{{user.displayName}}">
+    <ion-card-subtitle>Bienvenidx {{(user.displayName) ? user.displayName : 'User'}}</ion-card-subtitle>
+    <ion-card-title>ID: {{user.uid}}</ion-card-title>
+    <ion-card-title>Email: {{user.email}}</ion-card-title>
+    <ion-card-title>Verificado: {{user.emailVerified}}</ion-card-title>
+    <!-- <ion-thumbnail slot="start">
+      <ion-img [src]="{{(user.photoURL) ? user.photoURL : '/assets/teemo.jpg'}}"></ion-img>
+    </ion-thumbnail> -->
+  </ion-card-header>
+
+  <!-- <ion-card-content>
+    Keep close to Nature's heart... and break clear away, once in awhile,
+    and climb a mountain or spend a week in the woods. Wash your spirit clean.
+  </ion-card-content> -->
+
+</ion-card>
+
