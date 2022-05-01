@@ -4,12 +4,12 @@
 	"appName": "Alamar_De_Robo",
 	"webDir": "www",
 	"bundledWebRuntime": false,
-	"backgroundColor": "#E7A2A2",
+	"backgroundColor": "#EC865E",
 	"plugins": {
 		"SplashScreen": {
-		  "launchShowDuration": 0,
+		  "launchShowDuration": 3000,
 		  "launchAutoHide": true,
-		  "backgroundColor": "#E7A2A2",
+		  "backgroundColor": "#EC865E",
 		  "androidSplashResourceName": "splash",
 		  "androidScaleType": "CENTER_CROP",
 		  "showSpinner": true,

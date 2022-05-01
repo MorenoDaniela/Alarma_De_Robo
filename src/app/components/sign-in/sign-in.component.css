@@ -1,3 +1,20 @@
 .item-background-color{
     --ion-item-background:#EC865E;
 }
+
+ion-content{
+    --background:#EC865E;
+}
+
+.spin{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      ion-spinner {
+        width: 28px;
+        height: 28px;
+        stroke: rgb(20, 170, 35);
+        fill: rgb(186, 30, 155);
+      }

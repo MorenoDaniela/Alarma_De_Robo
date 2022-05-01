@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.service";
 import { AbstractControl, FormBuilder, FormGroup, Validators  } from '@angular/forms';
+import { SpinnerTypes } from '@ionic/angular';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -8,7 +9,10 @@ import { AbstractControl, FormBuilder, FormGroup, Validators  } from '@angular/f
 })
 export class SignInComponent implements OnInit {
   formulario!: FormGroup;
-  constructor(public authService: AuthService,public fb: FormBuilder,) { }
+  spinner:boolean=false;
+  constructor(public authService: AuthService,public fb: FormBuilder,) 
+  { 
+  }
 
   ngOnInit(): void {
     this.buildForm();
@@ -31,9 +35,12 @@ export class SignInComponent implements OnInit {
   console.log(this.formulario.get);
    const Password = this.formulario.controls['Password'].value;
    const Email = this.formulario.controls['Email'].value;
-
-
+   this.spinner=true;
+   setTimeout(()=>{
     this.authService.SignIn(Email, Password);
+    this.spinner=false;
+  },2000)
+   
     // this.toastr.showExito("Se registro el administrador correctamente","Tus datos fueron enviados con exito.",2000);
   }
 
