@@ -7,6 +7,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { SplashComponent } from './components/splash/splash.component';
+import { AlarmaComponent } from './components/alarma/alarma.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  {path: 'splash', component:SplashComponent}
+  {path: 'splash', component:SplashComponent},
+  {path: 'alarma', component:AlarmaComponent}
 ];
 
 @NgModule({

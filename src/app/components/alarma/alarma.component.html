@@ -1,0 +1,14 @@
+<ion-content>
+ <h5 class="text-center" style="margin-top: 20px;">PRESIONA</h5>
+  <ng-template class="" [ngIf]="bloqueado">
+    <div style="background-color: rgb(174, 134, 91);" >
+      <img src="../../../assets/close.png" style="margin-top: 200px;" class="mx-auto d-block img-fluid border border-dark"(click)="changeBloqueado()" alt="Responsive image">
+    </div>
+  </ng-template>
+
+  <ng-template class="" [ngIf]="!bloqueado">
+    <div style="background-color: rgb(174, 134, 91);">
+      <img src="../../../assets/open.png" style="margin-top: 200px;" class="mx-auto d-block img-fluid border border-dark" (click)="changeBloqueado()" alt="Responsive image">
+    </div>
+  </ng-template>
+</ion-content>

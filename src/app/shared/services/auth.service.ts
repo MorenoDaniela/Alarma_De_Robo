@@ -60,7 +60,7 @@ export class AuthService {
       const result = await this.afAuth
         .signInWithEmailAndPassword(email, password);
       this.ngZone.run(() => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['alarma']);
         this.presentToast("Logueo exitoso.",2000,'bottom','success','text-center');
       });
       this.SetUserData(result.user);
