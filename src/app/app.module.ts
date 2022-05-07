@@ -21,7 +21,14 @@ import { AuthService } from "./shared/services/auth.service";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AlarmaComponent } from './components/alarma/alarma.component';
-
+import { DeviceMotion } from '@awesome-cordova-plugins/device-motion/ngx';
+// DeviceOrientationCompassHeading is an interface for compass
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@awesome-cordova-plugins/device-orientation/ngx';
+import { NativeAudio } from '@awesome-cordova-plugins/native-audio/ngx';
+import { Flashlight } from '@awesome-cordova-plugins/flashlight/ngx';
+import { Vibration } from '@awesome-cordova-plugins/vibration/ngx';
+import { Media, MediaObject } from '@awesome-cordova-plugins/media/ngx';
+import { platform } from 'os';
 @NgModule({
   declarations: [AppComponent,
     DashboardComponent,
@@ -41,7 +48,7 @@ import { AlarmaComponent } from './components/alarma/alarma.component';
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },DeviceMotion, DeviceOrientation, NativeAudio, Flashlight, Vibration, Media],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

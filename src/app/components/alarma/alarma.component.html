@@ -1,14 +1,29 @@
 <ion-content>
- <h5 class="text-center" style="margin-top: 20px;">PRESIONA</h5>
-  <ng-template class="" [ngIf]="bloqueado">
-    <div style="background-color: rgb(174, 134, 91);" >
-      <img src="../../../assets/close.png" style="margin-top: 200px;" class="mx-auto d-block img-fluid border border-dark"(click)="changeBloqueado()" alt="Responsive image">
+  <!-- <img src="../../../assets/close.png" alt="Responsive image"> -->
+  <button type="button" class="btn btn-danger position-absolute top-0 end-0">Salir</button>
+  <BR>
+    <ng-template class="" [ngIf]="activa">
+      <h5 class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PRESIONA PARA DESACTIVAR</h5>
+      <!-- <ion-icon name="arrow-down-circle"></ion-icon> -->
+    </ng-template>
+ 
+  <ng-template class="" [ngIf]="activa">
+    <div style="background-color: rgb(rgb(255, 0, 0), green, blue);" >
+      <br>
+      <img src="../../../assets/close.png" style="margin-top: 200px;margin-left: 5%;margin-right: 5%;" class="mx-auto d-block rounded-circle img-fluid border border-dark border-5"(click)="changeBloqueado()" alt="Responsive image">
+      <br>
     </div>
   </ng-template>
-
-  <ng-template class="" [ngIf]="!bloqueado">
-    <div style="background-color: rgb(174, 134, 91);">
-      <img src="../../../assets/open.png" style="margin-top: 200px;" class="mx-auto d-block img-fluid border border-dark" (click)="changeBloqueado()" alt="Responsive image">
+  <ng-template class="" [ngIf]="!activa">
+    
+    <h5 class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PRESIONA PARA ACTIVAR</h5>
+    <!-- <ion-icon class="text-center"name="arrow-down-circle"></ion-icon> -->
+  </ng-template>
+  <ng-template class="" [ngIf]="!activa">
+    <div style="background-color:  rgb(rgb(255, 0, 0), green, blue);">
+      <br>
+      <img src="../../../assets/open.png" style="margin-top: 200px;" class="mx-auto d-block img-fluid rounded-circle border border-dark border-5" (click)="changeBloqueado()" alt="Responsive image">
+      <br>
     </div>
   </ng-template>
 </ion-content>

@@ -2,5 +2,25 @@
 <widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <access origin="*" />
   
+  <feature name="Accelerometer">
+    <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener"/>
+  </feature>
+
+  <feature name="Compass">
+    <param name="android-package" value="org.apache.cordova.deviceorientation.CompassListener"/>
+  </feature>
+
+  <feature name="Flashlight">
+    <param name="android-package" value="nl.xservices.plugins.Flashlight"/>
+  </feature>
+
+  <feature name="Media">
+    <param name="android-package" value="org.apache.cordova.media.AudioHandler"/>
+  </feature>
+
+  <feature name="NativeAudio">
+    <param name="android-package" value="com.rjfun.cordova.plugin.nativeaudio.NativeAudio"/>
+  </feature>
+
   
 </widget>
