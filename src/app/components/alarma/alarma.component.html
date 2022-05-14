@@ -1,6 +1,6 @@
 <ion-content>
   <!-- <img src="../../../assets/close.png" alt="Responsive image"> -->
-  <button type="button" class="btn btn-danger position-absolute top-0 end-0">Salir</button>
+  <button type="button" class="btn btn-danger position-absolute top-0 end-0" (click)="this.authService.SignOut()">Salir</button>
   <BR>
     <ng-template class="" [ngIf]="activa">
       <h5 class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PRESIONA PARA DESACTIVAR</h5>

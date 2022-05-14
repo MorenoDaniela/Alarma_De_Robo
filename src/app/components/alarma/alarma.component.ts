@@ -10,6 +10,7 @@ import { NativeAudio } from '@awesome-cordova-plugins/native-audio/ngx';
 import { Flashlight } from '@awesome-cordova-plugins/flashlight/ngx';
 import { Vibration } from '@awesome-cordova-plugins/vibration/ngx';
 import { Media, MediaObject } from '@awesome-cordova-plugins/media/ngx';
+import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
   selector: 'app-alarma',
   templateUrl: './alarma.component.html',
@@ -23,7 +24,7 @@ export class AlarmaComponent implements OnInit {
   z:any;
 
   constructor(private deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation,private nativeAudio: NativeAudio, 
-    private flashlight: Flashlight, private vibration: Vibration, private media: Media) { }
+    private flashlight: Flashlight, private vibration: Vibration, private media: Media, public authService: AuthService) { }
 
   ngOnInit() {
    var options : DeviceMotionAccelerometerOptions = {
