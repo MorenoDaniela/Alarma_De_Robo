@@ -22,7 +22,7 @@ export class AlarmaComponent implements OnInit {
   x:any;
   y:any;
   z:any;
-
+  passwordIngresada:string;
   constructor(private deviceMotion: DeviceMotion, private deviceOrientation: DeviceOrientation,private nativeAudio: NativeAudio, 
     private flashlight: Flashlight, private vibration: Vibration, private media: Media, public authService: AuthService) { }
 
@@ -30,25 +30,38 @@ export class AlarmaComponent implements OnInit {
    var options : DeviceMotionAccelerometerOptions = {
     frequency: 500
   }
-  this.nativeAudio.preloadComplex('uniqueKey2', 'assets/media/bell.mp3', 1, 1, 0).then(() => {     
+  this.nativeAudio.preloadComplex('uniqueKey2', 'assets/media/derecha.mp3', 1, 1, 0).then(() => {     
                
   });
-  this.nativeAudio.preloadComplex('uniqueKey1', 'assets/media/phone.mp3', 1, 1, 0).then(() => {     
+  this.nativeAudio.preloadComplex('uniqueKey1', 'assets/media/izquierda.mp3', 1, 1, 0).then(() => {     
+               
+  });
+  this.nativeAudio.preloadComplex('uniqueKey3', 'assets/media/arriba.mp3', 1, 1, 0).then(() => {     
+               
+  });
+  this.nativeAudio.preloadComplex('uniqueKey4', 'assets/media/abajo.mp3', 1, 1, 0).then(() => {     
                
   });
   }
 
- 
+
 
   changeBloqueado()
   {
     if (this.activa)
     {
-     
-     // Stop watch
-    this.subscription.unsubscribe();
-      this.activa=false;
-     
+      var usuario = this.authService.getItemLocal();
+     if (this.passwordIngresada==usuario.contra)
+     {
+      console.log("ingresada "+this.passwordIngresada +"la mia " + usuario.contra +" " +this.authService.userData.email);
+        // Stop watch
+        this.subscription.unsubscribe();
+        this.activa=false;
+     }else{
+      console.log("ingresada "+this.passwordIngresada +"la mia " + usuario.contra+" " +this.authService.userData.email);
+      this.authService.presentToast("Debes ingresar la contraseña correcta para desbloquear.",2000,"center","danger","text-center");
+     }
+
     }else{
 
       let flag = true;
@@ -82,6 +95,9 @@ export class AlarmaComponent implements OnInit {
     
               flagAcostado = false;
               this.vibration.vibrate(5000);
+              this.nativeAudio.play('uniqueKey4', function (){
+                this.nativeAudio.stop();
+              })
             }
           });
         } else if (this.y > 5 || this.x > 5 || this.x < -5 && flagAcostado === false) {
@@ -91,6 +107,9 @@ export class AlarmaComponent implements OnInit {
         if (this.y > 3 && flag == true) {
           flag = false;
           this.flashlight.switchOn();
+          this.nativeAudio.play('uniqueKey3', function (){
+            this.nativeAudio.stop();
+          })
           // this.audioVer.load();
           // this.audioVer.play();
 

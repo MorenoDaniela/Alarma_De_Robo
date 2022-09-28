@@ -63,7 +63,7 @@ export class AuthService {
         this.router.navigate(['alarma']);
         this.presentToast("Logueo exitoso.",2000,'bottom','success','text-center');
       });
-      this.SetUserData(result.user);
+      this.SetUserData(result.user, password);
     } catch (error:any) {
       console.log(error.message);
       this.presentToast('Contraseña o email invalidos, chequee los datos ingresados.',2000,'bottom','danger','text-center');
@@ -77,7 +77,7 @@ export class AuthService {
       /* Call the SendVerificaitonMail() function when new user sign
       up and returns promise */
       this.SendVerificationMail();
-      this.SetUserData(result.user);
+      this.SetUserData(result.user, password);
     } catch (error:any) {
       window.alert(error.message);
     }
@@ -122,7 +122,7 @@ export class AuthService {
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         });
-        this.SetUserData(result.user);
+        this.SetUserData(result.user, "");
       })
       .catch((error) => {
         window.alert(error);
@@ -131,7 +131,7 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
+  SetUserData(user: any, password:string) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
@@ -141,17 +141,32 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      contra: password
     };
+    localStorage.setItem('usuarioApp',JSON.stringify(userData));
+    console.log(userData.contra);
     return userRef.set(userData, {
       merge: true,
     });
   }
   // Sign out
   async SignOut() {
+    localStorage.removeItem('usuarioApp');
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
+  }
+
+  getItemLocal()
+  {
+    var user = localStorage.getItem('usuarioApp');
+    if (user!=null)
+    {
+      return JSON.parse(user);
+    }else{
+      return null;
+    }    
   }
 }
 // import { Injectable } from '@angular/core';

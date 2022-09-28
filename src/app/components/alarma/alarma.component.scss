@@ -4,3 +4,12 @@ ion-content{
 ion-icon {
     font-size: 64px;
   }
+
+  @font-face{
+    font-family: 'Pacifico';
+    src:url('../../../assets/Pacifico-Regular.ttf')
+}
+
+h5, ion-item, ion-label, span, ion-button, ion-input{
+    font-family: 'Pacifico';
+}

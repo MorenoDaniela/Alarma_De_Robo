@@ -1,29 +1,37 @@
 <ion-content>
   <!-- <img src="../../../assets/close.png" alt="Responsive image"> -->
   <button type="button" class="btn btn-danger position-absolute top-0 end-0" (click)="this.authService.SignOut()">Salir</button>
+  
+  
   <BR>
-    <ng-template class="" [ngIf]="activa">
-      <h5 class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PRESIONA PARA DESACTIVAR</h5>
+    <div *ngIf="activa">
+      <h5 class="text-center" >PRESIONA PARA DESACTIVAR</h5>
+      <ion-item class="text-center">
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" placeholder="Ingrese Contraseña" [(ngModel)]='passwordIngresada'></ion-input>
+      </ion-item>
+      
       <!-- <ion-icon name="arrow-down-circle"></ion-icon> -->
-    </ng-template>
+    </div>
  
-  <ng-template class="" [ngIf]="activa">
-    <div style="background-color: rgb(rgb(255, 0, 0), green, blue);" >
+  <div class="" *ngIf="activa">
+    <div style="background-color:#aa7634;margin-top: 10%;">
       <br>
-      <img src="../../../assets/close.png" style="margin-top: 200px;margin-left: 5%;margin-right: 5%;" class="mx-auto d-block rounded-circle img-fluid border border-dark border-5"(click)="changeBloqueado()" alt="Responsive image">
+     
+      <img src="../../../assets/close.png" style="margin-top: 100px;margin-left: 5%;margin-right: 5%; background-color:#e99c6d;" class="mx-auto d-block rounded-circle img-fluid border border-dark border-5"(click)="changeBloqueado()" alt="Responsive image">
       <br>
     </div>
-  </ng-template>
-  <ng-template class="" [ngIf]="!activa">
+  </div>
+  <div *ngIf="!activa">
     
-    <h5 class="text-center" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">PRESIONA PARA ACTIVAR</h5>
+    <h5 class="text-center" >PRESIONA PARA ACTIVAR</h5>
     <!-- <ion-icon class="text-center"name="arrow-down-circle"></ion-icon> -->
-  </ng-template>
-  <ng-template class="" [ngIf]="!activa">
-    <div style="background-color:  rgb(rgb(255, 0, 0), green, blue);">
+  </div>
+  <div  *ngIf="!activa">
+    <div style="background-color:#aa7634; margin-top: 20%;"> 
       <br>
-      <img src="../../../assets/open.png" style="margin-top: 200px;" class="mx-auto d-block img-fluid rounded-circle border border-dark border-5" (click)="changeBloqueado()" alt="Responsive image">
+      <img src="../../../assets/open.png" style="margin-top: 100px;background-color:#e99c6d;" class="mx-auto d-block img-fluid rounded-circle border border-dark border-5" (click)="changeBloqueado()" alt="Responsive image">
       <br>
     </div>
-  </ng-template>
+  </div>
 </ion-content>
